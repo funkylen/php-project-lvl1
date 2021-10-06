@@ -8,7 +8,9 @@
             "email": "funkylen@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.13"
+    },
     "bin": [
         "bin/brain-games"
     ]
