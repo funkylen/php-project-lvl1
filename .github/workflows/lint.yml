@@ -6,4 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: run lint
+        uses: nick-zh/composer@php7.4
         run: make lint
