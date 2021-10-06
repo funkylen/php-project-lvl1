@@ -2,5 +2,13 @@
 
 <?php
 
-echo "Welcome to the Brain Games!\n";
+$autoloadPath =  __DIR__ . '/../vendor/autoload.php';
+
+if (file_exists($autoloadPath)) {
+    require_once $autoloadPath;
+}
+
+$cli = new Brain\Games\Cli();
+
+$cli->getNameAndGreetUser();
 
