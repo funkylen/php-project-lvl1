@@ -4,10 +4,5 @@
 
 require_once 'autoload.php';
 
-Brain\Games\Cli\askNameAndGreetPlayer();
-
-// 1 Показать сообщение о том, как играть 
-// 2 Запустить игру
-// 3 Подготовить и показать вопрос
-// 4 Прочитать ответ
-// 5 Показать сообщение с результатом (хорошо-плохо). Если плохо - выйти. Если хорошо, повторить три раза с 3 пункта и если 3 раза ок - выйти.
+$playerName = Brain\Games\Cli\askNameAndGreetPlayer();
+Brain\Games\EvenGame\start($playerName);
