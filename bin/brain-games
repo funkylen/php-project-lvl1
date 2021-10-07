@@ -4,4 +4,4 @@
 
 require_once 'autoload.php';
 
-Brain\Games\Cli\askNameAndGreetPlayer();
+BrainGames\Cli\askNameAndGreetPlayer();

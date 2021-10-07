@@ -20,9 +20,9 @@
     "autoload": {
         "files": [
             "src/Cli.php",
-            "src/Game.php",
-            "src/CalcGame.php",
-            "src/EvenGame.php"
+            "src/Engine.php",
+            "src/Games/CalcGame.php",
+            "src/Games/EvenGame.php"
         ]
     }
 }

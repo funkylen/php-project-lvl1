@@ -1,14 +1,13 @@
 <?php
 
-namespace Brain\Games\Game;
-
+namespace BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
-function start($playerName, $getDescription, $getQuestion)
+function startGame($playerName, $description, $getQuestion)
 {
-    line($getDescription());
+    line($description);
 
     $tries = 3;
 

@@ -2,8 +2,11 @@
 
 <?php
 
+use function BrainGames\Cli\askNameAndGreetPlayer;
+use function BrainGames\Games\EvenGame\start;
+
 require_once 'autoload.php';
 
-$playerName = Brain\Games\Cli\askNameAndGreetPlayer();
+$playerName = askNameAndGreetPlayer();
 
-Brain\Games\Game\start($playerName, 'Brain\Games\EvenGame\getDescription', 'Brain\Games\EvenGame\getQuestion');
+start($playerName);

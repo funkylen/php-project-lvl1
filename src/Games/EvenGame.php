@@ -1,6 +1,13 @@
 <?php
 
-namespace Brain\Games\EvenGame;
+namespace BrainGames\Games\EvenGame;
+
+use function BrainGames\Engine\startGame;
+
+function start($playerName)
+{
+    startGame($playerName, getDescription(), fn () => getQuestion());
+}
 
 function getDescription()
 {

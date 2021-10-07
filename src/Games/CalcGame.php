@@ -1,6 +1,13 @@
 <?php
 
-namespace Brain\Games\CalcGame;
+namespace BrainGames\Games\CalcGame;
+
+use function BrainGames\Engine\startGame;
+
+function start($playerName)
+{
+    startGame($playerName, getDescription(), fn () => getQuestion());
+}
 
 function getDescription()
 {
