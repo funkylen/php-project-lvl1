@@ -6,4 +6,4 @@ require_once 'autoload.php';
 
 $playerName = Brain\Games\Cli\askNameAndGreetPlayer();
 
-Brain\Games\Game\start($playerName, 'Brain\Games\EvenGame\getDescription', 'Brain\Games\EvenGame\getQuestion');
+Brain\Games\Game\start($playerName, 'Brain\Games\CalcGame\getDescription', 'Brain\Games\CalcGame\getQuestion');
