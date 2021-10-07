@@ -11,21 +11,26 @@ function start($playerName)
 
 function getDescription()
 {
-    return 'Find the greatest common divisor of given numbers.';
+    return 'What number is missing in the progression?';
 }
 
 function getQuestion()
 {
-    $a = rand(0, 100);
-    $b = rand(0, 100);
+    $base = rand(0, 100);
+    $step = rand(0, 100);
+    $maxLength = rand(5, 15);
+
+    $progression = [];
+    for ($i = 0; $i < $maxLength; $i++) {
+        $progression[] = $base + $step * $i;
+    }
+
+    $unknownItemKey = array_rand($progression);
+    $unknownItem = $progression[$unknownItemKey];
+    $progression[$unknownItemKey] = '..';
 
     return [
-        'content' => "$a $b",
-        'answer' => (string) gcd($a, $b),
+        'content' => implode(' ', $progression),
+        'answer' => (string) $unknownItem,
     ];
-}
-
-function gcd($a, $b)
-{
-    return ($a % $b) ? gcd($b, $a % $b) : $b;
 }
