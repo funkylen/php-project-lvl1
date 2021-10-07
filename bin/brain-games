@@ -2,13 +2,6 @@
 
 <?php
 
-$autoloadPath =  __DIR__ . '/../vendor/autoload.php';
+require_once 'autoload.php';
 
-if (file_exists($autoloadPath)) {
-    require_once $autoloadPath;
-}
-
-$cli = new Brain\Games\Cli();
-
-$cli->getNameAndGreetUser();
-
+Brain\Games\Cli\askNameAndGreetPlayer();
