@@ -11,42 +11,21 @@ function start($playerName)
 
 function getDescription()
 {
-    return 'What is the result of the expression?';
+    return 'Find the greatest common divisor of given numbers.';
 }
 
 function getQuestion()
 {
     $a = rand(0, 100);
     $b = rand(0, 100);
-    $operation = randOperation();
 
     return [
-        'content' => "$a $operation $b",
-        'answer' => (string) calc($a, $b, $operation),
+        'content' => "$a $b",
+        'answer' => (string) gcd($a, $b),
     ];
 }
 
-function randOperation()
+function gcd($a, $b)
 {
-    $possibleOperations = [
-        '*',
-        '-',
-        '+',
-    ];
-
-    $randKey = array_rand($possibleOperations);
-
-    return $possibleOperations[$randKey];
-}
-
-function calc($a, $b, $operation)
-{
-    switch ($operation) {
-        case '*':
-            return $a * $b;
-        case '+':
-            return $a + $b;
-        case '-':
-            return $a - $b;
-    }
+    return ($a % $b) ? gcd($b, $a % $b) : $b;
 }

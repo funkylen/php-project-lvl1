@@ -3,7 +3,7 @@
 <?php
 
 use function BrainGames\Cli\askNameAndGreetPlayer;
-use function BrainGames\Games\CalcGame\start;
+use function BrainGames\Games\GcdGame\start;
 
 require_once 'autoload.php';
 
