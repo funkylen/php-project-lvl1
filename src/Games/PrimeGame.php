@@ -11,26 +11,31 @@ function start($playerName)
 
 function getDescription()
 {
-    return 'What number is missing in the progression?';
+    return 'Answer "yes" if given number is prime. Otherwise answer "no".';
 }
 
 function getQuestion()
 {
-    $base = rand(0, 100);
-    $step = rand(0, 100);
-    $maxLength = rand(5, 15);
-
-    $progression = [];
-    for ($i = 0; $i < $maxLength; $i++) {
-        $progression[] = $base + $step * $i;
-    }
-
-    $unknownItemKey = array_rand($progression);
-    $unknownItem = $progression[$unknownItemKey];
-    $progression[$unknownItemKey] = '..';
+    $number = rand(0, 100);
 
     return [
-        'content' => implode(' ', $progression),
-        'answer' => (string) $unknownItem,
+        'content' => (string) $number,
+        'answer' => isPrime($number) ? 'yes' : 'no',
     ];
+}
+
+function isPrime($number)
+{
+    if ($number === 1) {
+        return false;
+    }
+
+    $root = sqrt($number);
+    for ($i = 2; $i <= $root; $i++) {
+        if ($number % $i === 0) {
+            return false;
+        }
+    }
+
+    return true;
 }
