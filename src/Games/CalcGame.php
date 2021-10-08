@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games\CalcGame;
 
+use Exception;
+
 use function BrainGames\Engine\startGame;
 
 function start(string $playerName): void
@@ -49,4 +51,6 @@ function calc(int $a, int $b, string $operation): int
         case '-':
             return $a - $b;
     }
+
+    throw new Exception('Undefined operation');
 }
