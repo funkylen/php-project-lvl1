@@ -4,17 +4,17 @@ namespace BrainGames\Games\CalcGame;
 
 use function BrainGames\Engine\startGame;
 
-function start($playerName)
+function start(string $playerName): void
 {
     startGame($playerName, getDescription(), fn () => getQuestion());
 }
 
-function getDescription()
+function getDescription(): string
 {
     return 'What is the result of the expression?';
 }
 
-function getQuestion()
+function getQuestion(): array
 {
     $a = rand(0, 100);
     $b = rand(0, 100);
@@ -26,7 +26,7 @@ function getQuestion()
     ];
 }
 
-function randOperation()
+function randOperation(): string
 {
     $possibleOperations = [
         '*',
@@ -39,7 +39,7 @@ function randOperation()
     return $possibleOperations[$randKey];
 }
 
-function calc($a, $b, $operation)
+function calc(int $a, int $b, string $operation): int
 {
     switch ($operation) {
         case '*':

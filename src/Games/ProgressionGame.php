@@ -4,17 +4,17 @@ namespace BrainGames\Games\ProgressionGame;
 
 use function BrainGames\Engine\startGame;
 
-function start($playerName)
+function start(string $playerName): void
 {
     startGame($playerName, getDescription(), fn () => getQuestion());
 }
 
-function getDescription()
+function getDescription(): string
 {
     return 'What number is missing in the progression?';
 }
 
-function getQuestion()
+function getQuestion(): array
 {
     $base = rand(0, 100);
     $step = rand(0, 100);

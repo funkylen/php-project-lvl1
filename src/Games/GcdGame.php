@@ -4,17 +4,17 @@ namespace BrainGames\Games\GcdGame;
 
 use function BrainGames\Engine\startGame;
 
-function start($playerName)
+function start(string $playerName): void
 {
     startGame($playerName, getDescription(), fn () => getQuestion());
 }
 
-function getDescription()
+function getDescription(): string
 {
     return 'Find the greatest common divisor of given numbers.';
 }
 
-function getQuestion()
+function getQuestion(): array
 {
     $a = rand(0, 100);
     $b = rand(0, 100);
@@ -25,7 +25,7 @@ function getQuestion()
     ];
 }
 
-function gcd($a, $b)
+function gcd(int $a, int $b): int
 {
     return ($a % $b) ? gcd($b, $a % $b) : $b;
 }
