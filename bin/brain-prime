@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+
+<?php
+
+use function BrainGames\Cli\askNameAndGreetPlayer;
+use function BrainGames\Games\PrimeGame\start;
+
+require_once 'autoload.php';
+
+$playerName = askNameAndGreetPlayer();
+
+start($playerName);
