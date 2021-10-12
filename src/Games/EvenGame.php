@@ -4,22 +4,19 @@ namespace BrainGames\Games\EvenGame;
 
 use function BrainGames\Engine\startGame;
 
-function start(string $playerName): void
+const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+function start(): void
 {
-    startGame($playerName, getDescription(), fn () => getQuestion());
+    startGame(DESCRIPTION, fn () => getQuestionContentAndAnswer());
 }
 
-function getDescription(): string
-{
-    return 'Answer "yes" if the number is even, otherwise answer "no".';
-}
-
-function getQuestion(): array
+function getQuestionContentAndAnswer(): array
 {
     $number = rand(0, 100);
 
     return [
         'content' => $number,
-        'answer' => (string) $number % 2 === 0 ? 'yes' : 'no',
+        'answer' => $number % 2 === 0 ? 'yes' : 'no',
     ];
 }

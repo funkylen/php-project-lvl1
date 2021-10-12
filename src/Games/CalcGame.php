@@ -6,17 +6,14 @@ use Exception;
 
 use function BrainGames\Engine\startGame;
 
-function start(string $playerName): void
+const DESCRIPTION = 'What is the result of the expression?';
+
+function start(): void
 {
-    startGame($playerName, getDescription(), fn () => getQuestion());
+    startGame(DESCRIPTION, fn () => getQuestionContentAndAnswer());
 }
 
-function getDescription(): string
-{
-    return 'What is the result of the expression?';
-}
-
-function getQuestion(): array
+function getQuestionContentAndAnswer(): array
 {
     $a = rand(0, 100);
     $b = rand(0, 100);

@@ -4,17 +4,14 @@ namespace BrainGames\Games\PrimeGame;
 
 use function BrainGames\Engine\startGame;
 
-function start(string $playerName): void
+const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+function start(): void
 {
-    startGame($playerName, getDescription(), fn () => getQuestion());
+    startGame(DESCRIPTION, fn () => getQuestionContentAndAnswer());
 }
 
-function getDescription(): string
-{
-    return 'Answer "yes" if given number is prime. Otherwise answer "no".';
-}
-
-function getQuestion(): array
+function getQuestionContentAndAnswer(): array
 {
     $number = rand(0, 100);
 
@@ -26,7 +23,9 @@ function getQuestion(): array
 
 function isPrime(int $number): bool
 {
-    if ($number === 1) {
+    $cornerCaseNumbers = [0, 1];
+
+    if (in_array($number, $cornerCaseNumbers, true)) {
         return false;
     }
 

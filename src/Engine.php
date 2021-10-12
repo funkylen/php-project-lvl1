@@ -2,19 +2,22 @@
 
 namespace BrainGames\Engine;
 
+use function BrainGames\Cli\askNameAndGreetPlayer;
 use function cli\line;
 use function cli\prompt;
 
-function startGame(string $playerName, string $description, callable $getQuestion): void
+function startGame(string $description, callable $getQuestionContentAndAnswer): void
 {
+    $playerName = askNameAndGreetPlayer();
+
     line($description);
 
-    $tries = 3;
+    $triesCount = 3;
 
-    while ($tries > 0) {
-        $tries -= 1;
+    while ($triesCount > 0) {
+        $triesCount -= 1;
 
-        $question = $getQuestion();
+        $question = $getQuestionContentAndAnswer();
 
         line('Question: ' . $question['content']);
 
@@ -26,7 +29,7 @@ function startGame(string $playerName, string $description, callable $getQuestio
             return;
         }
 
-        if ($tries === 0) {
+        if ($triesCount === 0) {
             line("Congratulations, $playerName!");
             return;
         }
