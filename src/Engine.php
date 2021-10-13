@@ -17,23 +17,20 @@ function startGame(string $description, callable $getQuestionContentAndAnswer): 
     while ($triesCount > 0) {
         $triesCount -= 1;
 
-        $question = $getQuestionContentAndAnswer();
+        ['answer' => $answer, 'content' => $questionContent] = $getQuestionContentAndAnswer();
 
-        line('Question: ' . $question['content']);
+        line('Question: ' . $questionContent);
 
-        $answer = prompt('Your answer');
+        $playerAnswer = prompt('Your answer');
 
-        if ($answer !== $question['answer']) {
-            line("'$answer' is wrong answer ;(. Correct answer was '{$question['answer']}'.");
+        if ($playerAnswer !== $answer) {
+            line("'$playerAnswer' is wrong answer ;(. Correct answer was '$answer'.");
             line("Let's try again, $playerName!");
-            return;
-        }
-
-        if ($triesCount === 0) {
-            line("Congratulations, $playerName!");
             return;
         }
 
         line('Correct!');
     }
+
+    line("Congratulations, $playerName!");
 }

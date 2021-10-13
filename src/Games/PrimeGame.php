@@ -23,9 +23,7 @@ function getQuestionContentAndAnswer(): array
 
 function isPrime(int $number): bool
 {
-    $cornerCaseNumbers = [0, 1];
-
-    if (in_array($number, $cornerCaseNumbers, true)) {
+    if ($number < 2) {
         return false;
     }
 
